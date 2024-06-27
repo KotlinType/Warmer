@@ -1,27 +1,22 @@
 package com.redplanet.warmer.screen.home.home
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.redplanet.warmer.R
+import com.redplanet.warmer.screen.home.home.view.Cards
 import com.redplanet.warmer.screen.view.Header
 
 @Composable
 fun HomeScreen(
+	cards: List<String>,
+	currentCardId: Int,
+	onSwapNextCard: (Int) -> Unit,
 	onModuleDetails: (ip: String) -> Unit,
+	onAddNewCard: () -> Unit,
 	modifier: Modifier = Modifier,
 ) {
 	Column(
@@ -29,29 +24,16 @@ fun HomeScreen(
 	) {
 		Header(
 			title = "Согревайка", // TODO move to strings
-			onAdd = {},
+			onAdd = onAddNewCard,
 		)
 		Surface(
 			shape = RoundedCornerShape(topStart = 10.dp,  topEnd = 10.dp)
 		) {
-			Column(
-				modifier = Modifier
-					.fillMaxSize(),
-				horizontalAlignment = Alignment.CenterHorizontally,
-			) {
-				Text(
-					modifier = Modifier
-						.padding(top = 20.dp),
-					text = "Пользователь 1", // TODO move to viewModel
-					style = MaterialTheme.typography.bodyLarge
-				)
-				Image(
-					modifier = Modifier
-						.padding(vertical = 20.dp),
-					painter = painterResource(R.drawable.people),
-					contentDescription = "people"
-				)
-			}
+			Cards(
+				cards = cards,
+				currentCardId =  currentCardId,
+				onSwapNextCard = onSwapNextCard
+			)
 		}
 	}
 }
