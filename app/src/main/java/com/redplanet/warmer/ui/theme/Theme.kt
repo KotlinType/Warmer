@@ -1,57 +1,53 @@
 package com.redplanet.warmer.ui.theme
 
-import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-	primary = Purple80,
-	secondary = PurpleGrey80,
-	tertiary = Pink80
 )
 
-private val LightColorScheme = lightColorScheme(
-	primary = Purple40,
-	secondary = PurpleGrey40,
-	tertiary = Pink40
-
-	/* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val LightColors = lightColorScheme(
+	primary = light_primary,
+	onPrimary = light_onPrimary,
+	primaryContainer = light_primaryContainer,
+	onPrimaryContainer = light_onPrimaryContainer,
+	secondary = light_secondary,
+	onSecondary = light_onSecondary,
+	secondaryContainer = light_secondaryContainer,
+	onSecondaryContainer = light_onSecondaryContainer,
+	tertiary = light_tertiary,
+	onTertiary = light_onTertiary,
+	tertiaryContainer = light_tertiaryContainer,
+	onTertiaryContainer = light_onTertiaryContainer,
+	error = light_error,
+	onError = light_onError,
+	errorContainer = light_errorContainer,
+	onErrorContainer = light_onErrorContainer,
+	background = light_background,
+	onBackground = light_onBackground,
+	surface = light_surface,
+	onSurface = light_onSurface,
+	surfaceVariant = light_surfaceVariant,
+	onSurfaceVariant = light_onSurfaceVariant,
+	outline = light_outline,
+	inverseSurface = light_inverseSurface,
+	inverseOnSurface = light_inverseOnSurface,
+	inversePrimary = light_inversePrimary,
+	surfaceTint = light_surfaceTint,
 )
 
 @Composable
 fun WarmerTheme(
-	darkTheme: Boolean = isSystemInDarkTheme(),
-	// Dynamic color is available on Android 12+
-	dynamicColor: Boolean = true,
+	useDarkTheme: Boolean = isSystemInDarkTheme(),
 	content: @Composable () -> Unit
 ) {
-	val colorScheme = when {
-		dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-			val context = LocalContext.current
-			if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-		}
-
-		darkTheme -> DarkColorScheme
-		else -> LightColorScheme
-	}
+	val colors = if (!useDarkTheme) LightColors else LightColors
 
 	MaterialTheme(
-		colorScheme = colorScheme,
+		colorScheme = colors,
 		typography = Typography,
 		content = content
 	)
