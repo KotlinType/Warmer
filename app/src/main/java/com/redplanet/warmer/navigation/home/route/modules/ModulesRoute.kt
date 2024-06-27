@@ -15,6 +15,7 @@ fun ModulesRoute(
 	val modulesViewModel = viewModel<ModulesViewModel>()
 
 	ModulesScreen(
+		listModules = listOf(), // TODO replace "listOf()" with a listModules from viewmodel
 		onModuleDetails = onModuleDetails,
 		modifier = Modifier.statusBarsPadding().navigationBarsPadding()
 	)

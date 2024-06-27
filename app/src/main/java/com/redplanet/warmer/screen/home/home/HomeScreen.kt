@@ -38,16 +38,19 @@ fun HomeScreen(
 				modifier = Modifier
 					.fillMaxSize(),
 				horizontalAlignment = Alignment.CenterHorizontally,
-				verticalArrangement = Arrangement.Center
 			) {
-				Text("Home screen")
-				Button(
-					onClick = {
-						onModuleDetails("192:168:53:36")
-					}
-				) {
-					Text("details")
-				}
+				Text(
+					modifier = Modifier
+						.padding(top = 20.dp),
+					text = "Пользователь 1", // TODO move to viewModel
+					style = MaterialTheme.typography.bodyLarge
+				)
+				Image(
+					modifier = Modifier
+						.padding(vertical = 20.dp),
+					painter = painterResource(R.drawable.people),
+					contentDescription = "people"
+				)
 			}
 		}
 	}

@@ -129,7 +129,7 @@ val Typography = Typography(
 	bodyLarge = TextStyle(
 		fontFamily = RobotoFontFamily,
 		fontWeight = FontWeight.W400,
-		fontSize = 16.sp,
+		fontSize = 18.sp,
 		lineHeight = 24.sp,
 		letterSpacing = 0.5.sp,
 	),
@@ -138,7 +138,7 @@ val Typography = Typography(
 	bodyMedium = TextStyle(
 		fontFamily = RobotoFontFamily,
 		fontWeight = FontWeight.W400,
-		fontSize = 14.sp,
+		fontSize = 16.sp,
 		lineHeight = 20.sp,
 		letterSpacing = 0.25.sp,
 	),
