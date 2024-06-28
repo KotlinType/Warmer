@@ -10,6 +10,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.redplanet.warmer.navigation.home.route.home.model.HomeEvent
 import com.redplanet.warmer.navigation.home.route.home.model.HomeState
@@ -21,7 +22,7 @@ import com.redplanet.warmer.screen.home.home.view.AddDialog
 fun HomeRoute(
 	onModuleDetails: (ip: String) -> Unit,
 ) {
-	val homeViewModel = viewModel<HomeViewModel>()
+	val homeViewModel = hiltViewModel<HomeViewModel>()
 	val state = homeViewModel.homeState.collectAsState().value
 
 	var cards by remember { mutableStateOf(listOf<String>()) }

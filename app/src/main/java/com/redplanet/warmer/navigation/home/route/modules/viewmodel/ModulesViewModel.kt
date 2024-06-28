@@ -4,10 +4,13 @@ import androidx.lifecycle.ViewModel
 import com.compose.jetnav.navigate.base.viewmodel.Event
 import com.redplanet.warmer.navigation.home.route.modules.model.ModulesEvent
 import com.redplanet.warmer.navigation.home.route.modules.model.ModulesState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
 
-class ModulesViewModel(
+@HiltViewModel
+class ModulesViewModel @Inject constructor(
 ) : ViewModel(), Event<ModulesEvent> {
 	private val _modulesState = MutableStateFlow<ModulesState>(ModulesState.Default)
 	val modulesState: StateFlow<ModulesState> = _modulesState

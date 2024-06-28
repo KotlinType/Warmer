@@ -4,10 +4,13 @@ import androidx.lifecycle.ViewModel
 import com.compose.jetnav.navigate.base.viewmodel.Event
 import com.redplanet.warmer.navigation.home.route.home.model.HomeEvent
 import com.redplanet.warmer.navigation.home.route.home.model.HomeState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
 
-class HomeViewModel(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
 ) : ViewModel(), Event<HomeEvent> {
 	private val _cards = arrayListOf("Пользователь 1")
 	private var _currentCardId = 0

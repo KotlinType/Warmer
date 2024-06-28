@@ -7,8 +7,11 @@ import kotlinx.coroutines.flow.StateFlow
 
 import androidx.lifecycle.ViewModel
 import com.redplanet.warmer.navigation.home.route.account.model.AccountEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AccountViewModel(
+@HiltViewModel
+class AccountViewModel @Inject constructor(
 ) : ViewModel(), Event<AccountEvent> {
 	private val _accountState = MutableStateFlow<AccountState>(AccountState.Default)
 	val accountState: StateFlow<AccountState> = _accountState

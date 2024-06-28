@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.redplanet.warmer.navigation.home.route.modules.viewmodel.ModulesViewModel
 import com.redplanet.warmer.screen.home.modules.ModulesScreen
@@ -12,7 +13,7 @@ import com.redplanet.warmer.screen.home.modules.ModulesScreen
 fun ModulesRoute(
 	onModuleDetails: (ip: String) -> Unit,
 ) {
-	val modulesViewModel = viewModel<ModulesViewModel>()
+	val modulesViewModel = hiltViewModel<ModulesViewModel>()
 
 	ModulesScreen(
 		listModules = listOf(), // TODO replace "listOf()" with a listModules from viewmodel

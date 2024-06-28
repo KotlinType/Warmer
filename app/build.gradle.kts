@@ -1,6 +1,8 @@
 plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.jetbrains.kotlin.android)
+	alias(libs.plugins.hilt.android)
+	alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -54,6 +56,11 @@ dependencies {
 	val composeBom = platform(libs.androidx.compose.bom)
 	implementation(composeBom)
 	androidTestImplementation(composeBom)
+
+	// Hilt
+	implementation(libs.hilt.android)
+	implementation(libs.androidx.hilt.navigation.compose)
+	ksp(libs.hilt.compiler)
 
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.navigation.compose)
